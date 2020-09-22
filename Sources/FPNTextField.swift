@@ -275,7 +275,7 @@ open class FPNTextField: UITextField {
 	}
     
     /// Set the country image according to country code STRING. Example "FR"
-    open func setFlag(countryCodeString: String) {
+    @objc open func setFlag(countryCodeString: String) {
         let countries = countryRepository.countries
 
         for country in countries {
