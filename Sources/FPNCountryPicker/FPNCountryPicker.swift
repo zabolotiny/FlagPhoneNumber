@@ -37,6 +37,17 @@ open class FPNCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDat
 			}
 		}
 	}
+    
+    open func setCountry(_ stringCode: String) {
+        guard let countries = repository?.countries else { return }
+
+        for (index, country) in countries.enumerated() {
+            if country.code == FPNCountryCode(rawValue: stringCode) {
+                selectRow(index, inComponent: 0, animated: true)
+                didSelect?(country)
+            }
+        }
+    }
 
 	// MARK: - Picker Methods
 
